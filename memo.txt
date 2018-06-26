@@ -1,0 +1,9 @@
+G = session.readGraphWithProperties("graph_edgelist.json")
+
+G.queryPgql(" \
+  SELECT c1.id(), c2.id(), m1.id(), m2.id() \
+  WHERE (c1)-->(m1)<--(c2), (c1)-->(m2)<--(c2) \
+  LIMIT 10 \
+").print()
+
+:exit

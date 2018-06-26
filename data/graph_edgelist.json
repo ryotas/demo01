@@ -1,0 +1,11 @@
+{
+  "uri": "graph_edgelist.tsv"
+, "format": "edge_list"
+, "node_id_type": "string"
+, "vertex_props":[
+  ]
+, "edge_props":[
+    {"name":"score", "type":"integer"}
+  ]
+, "separator": "\t"
+}
