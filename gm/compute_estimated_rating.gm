@@ -1,0 +1,19 @@
+procedure compute_estimated_rating (
+    G: graph,
+    user: node,
+    is_user: nodeProp<bool>,
+    vector_length: int,
+    feature: nodeProp<vect<double>[vector_length]>;
+    estimated_rating: nodeProp<double> ) {
+    foreach(n: G.nodes) {
+        if ( n.is_user ) {
+            n.estimated_rating = 0;
+        } else if ( n.hasEdgeFrom (user) ) {
+             // already seen the movie
+            n.estimated_rating = 0;
+        } else {
+            // inner product of two feature vectors
+            n.estimated_rating = user.feature * n.feature;
+        }
+    }
+}
