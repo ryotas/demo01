@@ -5,4 +5,4 @@ create table merchant (
 , merchant_group string
 , merchant_name string
 , merchant_city string
-) row format delimited fields terminated by ',';
+) row format delimited fields terminated by '\t';
