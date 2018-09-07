@@ -26,10 +26,16 @@ echo "*********************"
 echo "Creating graph data.."
 echo "*********************"
 
-hive -f hql/export_edgelist.hql > ./data/graph_edgelist_tmp.tsv
-cat ./data/graph_edgelist_tmp.tsv | sed -e '$d' | sed -e '$d' > ./data/graph_edgelist.tsv
-rm ./data/graph_edgelist_tmp.tsv
+hive -f hql/export_edgelist.hql > ./data/graph.edgelist.tmp
+cat ./data/graph.edgelist.tmp | sed -e '$d' | sed -e '$d' > ./data/graph.edgelist
+rm ./data/graph.edgelist.tmp
 
-hive -f hql/export_pg.hql > ./data/graph_pg_tmp.tsv
-cat ./data/graph_pg_tmp.tsv | sed -e '$d' | sed -e '$d' > ./data/graph_pg.tsv
-rm ./data/graph_pg_tmp.tsv
+hive -f hql/export_pg.hql > ./data/graph.pg.tmp
+cat ./data/graph.pg.tmp | sed -e '$d' | sed -e '$d' > ./data/graph.pg
+rm ./data/graph.pg.tmp
+
+echo "*******************************"
+echo "Convert PG to PGX.."
+echo "*******************************"
+
+pg2pgx ./data/graph.pg ./data/graph

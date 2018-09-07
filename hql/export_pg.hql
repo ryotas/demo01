@@ -1,8 +1,9 @@
 select
-  concat('"', card_number, '"')
+--  row_number() over () + 1000000000
+  concat('"', regexp_replace(card_number, '-', ''), '"')
 , ':customer'
 , 'user:"true"'
-, concat('card_number:', card_number)
+, concat('card_number:"', card_number, '"')
 , concat('gender:"', gender, '"')
 , concat('date_of_birth:"', date_of_birth, '"')
 , concat('occupation:"', occupation, '"')
@@ -16,6 +17,7 @@ from customer
 ;
 
 select
+--  row_number() over () + 2000000000
   concat('"', merchant_id, '"')
 , ':merchant'
 , 'user:"false"'
@@ -27,7 +29,8 @@ from merchant
 ;
 
 select
-  concat('"', card_number, '"')
+--  concat('"', card_number, '"')
+  concat('"', regexp_replace(card_number, '-', ''), '"')
 , concat('"', merchant_id, '"')
 , ':purchased'
 , 'rating:1.0'

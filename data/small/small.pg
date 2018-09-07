@@ -1,0 +1,39 @@
+# NODES
+
+1001  :customer  isroot:1  name:"Toby Evans"
+1002  :customer            name:"Ken Ishida"
+1003  :customer            name:"Mary Wilson"
+
+2001  :"ATM Tx"  isroot:1  name:tx_2001
+2002  :"ATM Tx"            name:tx_2002
+2003  :"ATM Tx"            name:tx_2003
+
+3001  :merchant  isroot:1  name:dummy
+3002  :merchant            name:Tesco
+3003  :merchant            name:"HIS Travel"
+
+4001  :"Deposit Tx"  isroot:1  name:tx_4001
+4002  :"Deposit Tx"            name:tx_4002
+4003  :"Deposit Tx"            name:tx_4003
+
+5001  :location  isroot:1  name:dummy
+5002  :location            name:Bangkok
+
+# EDGES
+
+1001  2002  :issued
+1001  2003  :issued
+
+2002  3002  :issued_to
+2003  3003  :issued_to
+
+1001  5002  :live_in
+5002  1003  :live_in
+5002  1002  :live_in
+
+1001  4002  :issued
+1001  4003  :issued
+
+4002  1003  :issued_to
+4003  3002  :issued_to
+
