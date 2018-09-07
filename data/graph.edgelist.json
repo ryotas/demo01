@@ -1,5 +1,5 @@
 {
-  "uri": "graph_edgelist.tsv"
+  "uri": "graph.edgelist"
 , "format": "edge_list"
 , "node_id_type": "string"
 , "vertex_props":[

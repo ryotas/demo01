@@ -10,7 +10,11 @@
 ### PGQL query (memo)
 
 ```
-G = session.readGraphWithProperties("graph_edgelist.json")
+G = session.readGraphWithProperties("graph.edgelist.json")
+
+OR
+
+G = session.readGraphWithProperties("graph.pgx.json")
 
 G.queryPgql(" \
   SELECT c1.id(), c2.id(), m1.id(), m2.id() \
