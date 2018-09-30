@@ -1,5 +1,3 @@
-# demo01
-
 This demo is tested on Big Data Lite VM 4.11.
 
 * Load CSV files into HDFS
